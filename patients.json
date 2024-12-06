@@ -1,0 +1,38 @@
+{
+    "John Doe": {
+        "Age": 30,
+        "Condition": "Flu",
+        "Prescriptions": "Paracetamol",
+        "images": [
+            "Datasets/Binary/Training/tumor/Tr-gl_0076.jpg",
+            "Segmented Images/result_gl_0076.jpg"
+        ]
+    },
+    "Jane Smith": {
+        "Age": 25,
+        "Condition": "Migraine",
+        "Prescriptions": "Ibuprofen",
+        "images": [
+            "Datasets/Binary/Training/tumor/Tr-gl_0060.jpg",
+            "Segmented Images/result_gl_0060.jpg"
+        ]
+    },
+    "Alice Brown": {
+        "Age": 40,
+        "Condition": "Diabetes",
+        "Prescriptions": "Insulin",
+        "images": [
+            "Datasets/Binary/Training/tumor/Tr-gl_0061.jpg",
+            "Segmented Images/result_gl_0061.jpg"
+        ]
+    },
+    "Bob Johnson": {
+        "Age": 50,
+        "Condition": "Hypertension",
+        "Prescriptions": "Amlodipine",
+        "images": [
+            "Datasets/Binary/Training/tumor/Tr-gl_0061.jpg",
+            "Datasets/Binary/Training/tumor/Tr-gl_0061.jpg"
+        ]
+    }
+}
