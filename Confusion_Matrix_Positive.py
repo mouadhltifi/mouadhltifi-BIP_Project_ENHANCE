@@ -5,7 +5,7 @@ import seaborn as sns
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 # Load the trained model
-model = tf.keras.models.load_model('brain_tumor_multiclass_classifier_v2_89_79.keras')
+model = tf.keras.models.load_model('brain_tumor_multiclass_classifier_v4.keras')
 
 # Set up data generators for testing
 test_datagen = ImageDataGenerator(rescale=1.0/255)
