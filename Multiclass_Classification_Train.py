@@ -11,29 +11,27 @@ import math
 inputs = Input(shape=(512, 512, 3), name="input_layer")
 
 # First convolutional block with pooling
-x = Conv2D(32, (3, 3), activation='relu', padding='same')(inputs)
+x = Conv2D(64, (5, 5), activation='relu', padding='same')(inputs)
 x = BatchNormalization()(x)
 x = MaxPooling2D((2, 2))(x)  # Pooling reduces feature map dimensions
 
 # Second convolutional block with pooling
-x = Conv2D(64, (3, 3), activation='relu', padding='same')(x)
+x = Conv2D(128, (5, 5), activation='relu', padding='same')(x)
 x = BatchNormalization()(x)
 x = MaxPooling2D((2, 2))(x)
 
 # Third convolutional block with pooling
-x = Conv2D(128, (3, 3), activation='relu', padding='same')(x)
+x = Conv2D(256, (3, 3), activation='relu', padding='same', strides=2)(x)
 x = BatchNormalization()(x)
-x = MaxPooling2D((2, 2))(x)
 
 # Fourth convolutional block with pooling
-x = Conv2D(256, (3, 3), activation='relu', padding='same')(x)
+x = Conv2D(512, (3, 3), activation='relu', padding='same', strides=2)(x)
 x = BatchNormalization()(x)
-x = MaxPooling2D((2, 2))(x)
 
-# Final convolutional block
-x = Conv2D(512, (3, 3), activation='relu', padding='same')(x)
+# Final convolutional block for heatmap generation
+x = Conv2D(1024, (3, 3), activation='relu', padding='same')(x)
 x = BatchNormalization()(x)
-x = MaxPooling2D((2, 2))(x)
+x = MaxPooling2D((3, 3))(x)
 
 # Global average pooling to reduce tensor size
 x = GlobalAveragePooling2D()(x)
@@ -60,8 +58,8 @@ train_datagen = ImageDataGenerator(
 test_datagen = ImageDataGenerator(rescale=1.0 / 255)
 
 # Define directories for training and testing data
-train_data_dir = 'Datasets/Positive_Classification/Training'  # Replace with actual path
-test_data_dir = 'Datasets/Positive_Classification/Testing'  # Replace with actual path
+train_data_dir = 'Datasets/Multiclass/Training'  # Replace with actual path
+test_data_dir = 'Datasets/Multiclass/Testing'  # Replace with actual path
 
 # Prepare training, validation, and testing datasets
 train_dataset = train_datagen.flow_from_directory(
@@ -107,7 +105,7 @@ checkpoint = ModelCheckpoint(
 model.fit(
     train_dataset,
     steps_per_epoch=train_steps,
-    epochs=50,
+    epochs=200,
     validation_data=val_dataset,
     validation_steps=val_steps,
     callbacks=[early_stopping, reduce_lr, checkpoint]
@@ -122,4 +120,4 @@ print(f"Test Loss: {test_loss}")
 print(f"Test Accuracy: {test_accuracy}")
 
 # Save the final model explicitly
-model.save('multiclass_classifier_v6.keras')
+model.save('multiclass_classifier_v1.keras')

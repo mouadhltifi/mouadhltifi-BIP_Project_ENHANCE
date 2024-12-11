@@ -11,29 +11,27 @@ import math
 inputs = Input(shape=(512, 512, 3), name="input_layer")
 
 # First convolutional block with pooling
-x = Conv2D(32, (3, 3), activation='relu', padding='same')(inputs)
+x = Conv2D(64, (5, 5), activation='relu', padding='same')(inputs)
 x = BatchNormalization()(x)
 x = MaxPooling2D((2, 2))(x)  # Pooling reduces feature map dimensions
 
 # Second convolutional block with pooling
-x = Conv2D(64, (3, 3), activation='relu', padding='same')(x)
+x = Conv2D(128, (5, 5), activation='relu', padding='same')(x)
 x = BatchNormalization()(x)
 x = MaxPooling2D((2, 2))(x)
 
 # Third convolutional block with pooling
-x = Conv2D(128, (3, 3), activation='relu', padding='same')(x)
+x = Conv2D(256, (3, 3), activation='relu', padding='same', strides=2)(x)
 x = BatchNormalization()(x)
-x = MaxPooling2D((2, 2))(x)
 
 # Fourth convolutional block with pooling
-x = Conv2D(256, (3, 3), activation='relu', padding='same')(x)
+x = Conv2D(512, (3, 3), activation='relu', padding='same', strides=2)(x)
 x = BatchNormalization()(x)
-x = MaxPooling2D((2, 2))(x)
 
 # Final convolutional block for heatmap generation
-x = Conv2D(512, (3, 3), activation='relu', padding='same')(x)
+x = Conv2D(1024, (3, 3), activation='relu', padding='same')(x)
 x = BatchNormalization()(x)
-x = MaxPooling2D((2, 2))(x)
+x = MaxPooling2D((3, 3))(x)
 
 # Global average pooling to reduce tensor size
 x = GlobalAveragePooling2D()(x)
@@ -96,7 +94,7 @@ val_steps = math.ceil(val_dataset.samples / val_dataset.batch_size)
 early_stopping = EarlyStopping(monitor='val_loss', patience=10, restore_best_weights=True, verbose=1)
 reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.5, patience=5, min_lr=1e-6, verbose=1)
 checkpoint = ModelCheckpoint(
-    'best_model_binary.keras',
+    'binary_temp_best_model.keras',
     monitor='val_loss',
     save_best_only=True,
     mode='min',
@@ -107,14 +105,14 @@ checkpoint = ModelCheckpoint(
 model.fit(
     train_dataset,
     steps_per_epoch=train_steps,
-    epochs=50,
+    epochs=200,
     validation_data=val_dataset,
     validation_steps=val_steps,
     callbacks=[early_stopping, reduce_lr, checkpoint]
 )
 
 # Restore best weights (for safety)
-model.load_weights('best_model_binary.keras')
+model.load_weights('binary_temp_best_model.keras')
 
 # Evaluate the model on the test dataset
 test_loss, test_accuracy = model.evaluate(test_dataset)
@@ -122,4 +120,4 @@ print(f"Test Loss: {test_loss}")
 print(f"Test Accuracy: {test_accuracy}")
 
 # Save the final model explicitly
-model.save('brain_tumor_binary_classifier_v5.keras')
+model.save('binary_classifier_v1.keras')

@@ -94,5 +94,5 @@ def classify_image_with_heatmap(image_path):
     plt.show()
 
 # Example usage
-image_path = 'Datasets/Positive_Classification/Training/pituitary/Tr-pi_0123.jpg'  # Replace with your image path
+image_path = 'Datasets/Multiclass/Training/pituitary/Tr-pi_0123.jpg'  # Replace with your image path
 classify_image_with_heatmap(image_path)
