@@ -17,7 +17,7 @@ class APICallThread(QThread):
     def run(self):
         try:
             # Configure and call Gemini API
-            genai.configure(api_key="AIzaSyD2P68uDQsaHG5Ow2Lxa-2gAQFDW8EHdq0")
+            genai.configure(api_key="YOUR_API_KEY")
             model = genai.GenerativeModel("gemini-1.5-flash")
             diagnosis = self.patient_details.get("Suggested Diagnosis", "Unknown")
             prompt = (
