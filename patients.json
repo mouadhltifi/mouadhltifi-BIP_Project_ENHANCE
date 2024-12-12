@@ -1,38 +1,158 @@
 {
     "John Doe": {
         "Age": 30,
+        "Gender": "Male",
         "Condition": "Flu",
+        "Symptoms": ["Fever", "Cough", "Fatigue"],
         "Prescriptions": "Paracetamol",
+        "Allergies": "None",
+        "Family History": ["Hypertension"],
         "images": [
-            "Datasets/Binary/Training/tumor/Tr-gl_0076.jpg",
-            "Segmented Images/result_gl_0076.jpg"
-        ]
+            "Datasets/Binary/Training/tumor/Tr-gl_0076.jpg"
+        ],
+        "Suggested Diagnosis": "no tumor"
     },
     "Jane Smith": {
         "Age": 25,
+        "Gender": "Female",
         "Condition": "Migraine",
+        "Symptoms": ["Severe Headache", "Nausea", "Sensitivity to Light"],
         "Prescriptions": "Ibuprofen",
+        "Allergies": "Penicillin",
+        "Family History": ["Migraines", "Diabetes"],
         "images": [
-            "Datasets/Binary/Training/tumor/Tr-gl_0060.jpg",
-            "Segmented Images/result_gl_0060.jpg"
-        ]
+            "Datasets/Binary/Training/tumor/Tr-gl_0060.jpg"
+        ],
+        "Suggested Diagnosis": "glioma"
     },
     "Alice Brown": {
         "Age": 40,
+        "Gender": "Female",
         "Condition": "Diabetes",
+        "Symptoms": ["Increased Thirst", "Frequent Urination", "Fatigue"],
         "Prescriptions": "Insulin",
+        "Allergies": "None",
+        "Family History": ["Diabetes", "Hypertension"],
         "images": [
-            "Datasets/Binary/Training/tumor/Tr-gl_0061.jpg",
-            "Segmented Images/result_gl_0061.jpg"
-        ]
+            "Datasets/Binary/Training/tumor/Tr-gl_0061.jpg"
+        ],
+        "Suggested Diagnosis": "meningioma"
     },
     "Bob Johnson": {
         "Age": 50,
+        "Gender": "Male",
         "Condition": "Hypertension",
+        "Symptoms": ["Headaches", "Dizziness", "Shortness of Breath"],
         "Prescriptions": "Amlodipine",
+        "Allergies": "Sulfa Drugs",
+        "Family History": ["Hypertension"],
         "images": [
-            "Datasets/Binary/Training/tumor/Tr-gl_0061.jpg",
             "Datasets/Binary/Training/tumor/Tr-gl_0061.jpg"
-        ]
+        ],
+        "Suggested Diagnosis": "pituitary"
+    },
+    "Emily Davis": {
+        "Age": 35,
+        "Gender": "Female",
+        "Condition": "Asthma",
+        "Symptoms": ["Wheezing", "Shortness of Breath", "Chest Tightness"],
+        "Prescriptions": "Albuterol",
+        "Allergies": "Pollen",
+        "Family History": ["Asthma"],
+        "images": [
+            "Datasets/Binary/Training/tumor/Tr-gl_0080.jpg"
+        ],
+        "Suggested Diagnosis": "no tumor"
+    },
+    "Michael Wilson": {
+        "Age": 60,
+        "Gender": "Male",
+        "Condition": "Parkinson's Disease",
+        "Symptoms": ["Tremors", "Slowed Movement", "Stiffness"],
+        "Prescriptions": "Levodopa",
+        "Allergies": "None",
+        "Family History": ["Parkinson's Disease"],
+        "images": [
+            "Datasets/Binary/Training/tumor/Tr-gl_0081.jpg"
+        ],
+        "Suggested Diagnosis": "glioma"
+    },
+    "Sophia Martinez": {
+        "Age": 45,
+        "Gender": "Female",
+        "Condition": "Epilepsy",
+        "Symptoms": ["Seizures", "Confusion", "Unconsciousness"],
+        "Prescriptions": "Carbamazepine",
+        "Allergies": "None",
+        "Family History": ["Epilepsy"],
+        "images": [
+            "Datasets/Binary/Training/tumor/Tr-gl_0082.jpg"
+        ],
+        "Suggested Diagnosis": "meningioma"
+    },
+    "David Lee": {
+        "Age": 55,
+        "Gender": "Male",
+        "Condition": "Chronic Fatigue Syndrome",
+        "Symptoms": ["Extreme Fatigue", "Memory Issues", "Sleep Disturbances"],
+        "Prescriptions": "Modafinil",
+        "Allergies": "None",
+        "Family History": ["Chronic Fatigue Syndrome"],
+        "images": [
+            "Datasets/Binary/Training/tumor/Tr-gl_0083.jpg"
+        ],
+        "Suggested Diagnosis": "pituitary"
+    },
+    "Laura Thompson": {
+        "Age": 32,
+        "Gender": "Female",
+        "Condition": "Thyroid Disorder",
+        "Symptoms": ["Weight Gain", "Fatigue", "Hair Loss"],
+        "Prescriptions": "Levothyroxine",
+        "Allergies": "Gluten",
+        "Family History": ["Thyroid Issues"],
+        "images": [
+            "Datasets/Binary/Training/tumor/Tr-gl_0084.jpg"
+        ],
+        "Suggested Diagnosis": "no tumor"
+    },
+    "Chris Evans": {
+        "Age": 28,
+        "Gender": "Male",
+        "Condition": "Cluster Headaches",
+        "Symptoms": ["Severe Headache", "Redness in Eye", "Nasal Congestion"],
+        "Prescriptions": "Sumatriptan",
+        "Allergies": "Aspirin",
+        "Family History": ["Headaches"],
+        "images": [
+            "Datasets/Binary/Training/tumor/Tr-gl_0085.jpg"
+        ],
+        "Suggested Diagnosis": "glioma"
+    },
+    "Ethan Carter": {
+        "Age": 47,
+        "Gender": "Male",
+        "Condition": "Lung Cancer",
+        "Symptoms": ["Persistent Cough", "Chest Pain", "Weight Loss"],
+        "Prescriptions": "Cisplatin",
+        "Allergies": "None",
+        "Family History": ["Lung Cancer"],
+        "images": [
+            "Datasets/Binary/Training/tumor/Tr-gl_0086.jpg"
+        ],
+        "Suggested Diagnosis": "meningioma"
+    },
+    "Isabella Moore": {
+        "Age": 39,
+        "Gender": "Female",
+        "Condition": "Multiple Sclerosis",
+        "Symptoms": ["Muscle Weakness", "Blurred Vision", "Fatigue"],
+        "Prescriptions": "Interferon Beta",
+        "Allergies": "None",
+        "Family History": ["Multiple Sclerosis"],
+        "images": [
+            "Datasets/Binary/Training/tumor/Tr-gl_0087.jpg"
+        ],
+        "Suggested Diagnosis": "pituitary"
     }
 }

@@ -4,9 +4,10 @@ import matplotlib.pyplot as plt
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
 from tensorflow.keras.models import load_model, Model
 import cv2
+import os
 
 # Load the trained model
-model = load_model('multiclass_classifier_v6.keras')
+model = load_model('multiclass_classifier_v1.keras')
 
 # Function to preprocess the input image
 def preprocess_image(image_path):
@@ -78,6 +79,20 @@ def classify_image_with_heatmap(image_path):
 
     # Overlay heatmap on the original image
     overlay = overlay_heatmap(heatmap, image_path)
+
+    # Save the heatmap with a similar name to the input image
+    base_name = os.path.basename(image_path)
+    name, ext = os.path.splitext(base_name)
+    heatmap_path = f"{name}_heatmap{ext}"
+    cv2.imwrite(heatmap_path, overlay)
+    print(f"Heatmap saved to {heatmap_path}")
+
+    # Save the original image with a resized version
+    resized_image_path = f"{name}_resized{ext}"
+    resized_img = cv2.imread(image_path)
+    resized_img = cv2.resize(resized_img, (512, 512))
+    cv2.imwrite(resized_image_path, resized_img)
+    print(f"Resized image saved to {resized_image_path}")
 
     # Display the results
     plt.figure(figsize=(10, 10))

@@ -4,9 +4,10 @@ import matplotlib.pyplot as plt
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
 from tensorflow.keras.models import load_model, Model
 import cv2
+import os
 
 # Load the trained model
-model = load_model('brain_tumor_binary_classifier_v5.keras')
+model = load_model('binary_classifier_v1.keras')
 
 # Function to preprocess the input image
 def preprocess_image(image_path):
@@ -77,6 +78,13 @@ def classify_image_with_heatmap(image_path):
     # Overlay heatmap on the original image
     overlay = overlay_heatmap(heatmap, image_path)
 
+    # Save the heatmap with a similar name to the input image
+    base_name = os.path.basename(image_path)
+    name, ext = os.path.splitext(base_name)
+    output_path = f"{name}_heatmap{ext}"
+    cv2.imwrite(output_path, overlay)
+    print(f"Heatmap saved to {output_path}")
+
     # Display the results
     plt.figure(figsize=(10, 10))
     plt.subplot(1, 2, 1)
@@ -92,5 +100,5 @@ def classify_image_with_heatmap(image_path):
     plt.show()
 
 # Example usage
-image_path = 'Datasets/Binary/Training/tumor/Tr-gl_0072.jpg'  # Replace with your image path
+image_path = 'Datasets/Binary/Training/tumor/Tr-gl_0217.jpg'  # Replace with your image path
 classify_image_with_heatmap(image_path)
